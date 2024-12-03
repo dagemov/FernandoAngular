@@ -1,0 +1,23 @@
+<ul class="list-group">
+  <li *ngFor="
+      let character of characterList;
+      let i=index;
+      let isFirst = first;
+      let isLast = last;
+    "
+    class="list-group-item"
+    [ngClass]="{'list-group-item-success':isLast
+      ,'list-group-item-danger':isFirst
+    }"
+    >
+
+    <span class="text-primary">{{i+1}}.</span>
+
+    <span>{{character.name}}</span> -
+
+    <strong>power :  {{character.power}}</strong>
+
+    <span>Is the first One:{{isFirst}}</span>
+    <span>Is the Last : {{isLast}}</span>
+  </li>
+</ul>
