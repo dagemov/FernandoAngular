@@ -24,9 +24,11 @@ export class FormComponent {
     if(this.character.name.length == 0 || this.character.power<0) return;
 
     this.onNewCharacter.emit(this.character)
-
-    this.character.name = "",
-    this.character.power = 0
+    //evry emit , we have to clean the object to don duplicate the same data like a mirrow in the view
+    this.character = {
+      name: '',
+      power: 0
+    };
   }
   constructor(){
 

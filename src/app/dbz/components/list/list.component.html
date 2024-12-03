@@ -4,20 +4,20 @@
       let i=index;
       let isFirst = first;
       let isLast = last;
+      let isEven = even;
     "
-    class="list-group-item"
-    [ngClass]="{'list-group-item-success':isLast
-      ,'list-group-item-danger':isFirst
+    class="list-group-item d-flex justify-content-between aling-item-center"
+    [ngClass]="{
+      'list-group-item-danger':isFirst,
+       'list-group-item-dark':isEven
     }"
     >
+    <div>
+      <span class="text-primary">{{i+1}}.</span>
+      <span>{{character.name}}</span> -
+      <strong>power :  {{character.power}}</strong>
+    </div>
 
-    <span class="text-primary">{{i+1}}.</span>
-
-    <span>{{character.name}}</span> -
-
-    <strong>power :  {{character.power}}</strong>
-
-    <span>Is the first One:{{isFirst}}</span>
-    <span>Is the Last : {{isLast}}</span>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
   </li>
 </ul>

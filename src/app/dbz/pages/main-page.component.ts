@@ -29,7 +29,16 @@ export class MainPageComponent implements OnInit
   ];
 
   onNewCharacter(character:Character):void{
+    this.characters.push(character);
     console.log("Main Page character ",character);
+  }
+  onDeleteChracter(index:number):void
+  {
+    debugger
+    //here we're say , delete the element on the index = index , and homany elements ( only 1 in this case)
+    this.characters.splice(index,1);
+    console.log('from main page',{index})
+
   }
   constructor() { }
 
