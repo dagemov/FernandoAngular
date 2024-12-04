@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+
+import { v4 as uuid } from 'uuid';
+
 import { Character } from '../../interfaces/Character.interface';
+
 
 @Component({
   selector: 'dbz-form',
@@ -12,6 +16,7 @@ export class FormComponent {
   public onNewCharacter:EventEmitter<Character>= new EventEmitter()
 
   public character:Character={
+    id:uuid(),
     name:'',
     power:0
   };
@@ -26,6 +31,7 @@ export class FormComponent {
     this.onNewCharacter.emit(this.character)
     //evry emit , we have to clean the object to don duplicate the same data like a mirrow in the view
     this.character = {
+      id:'',
       name: '',
       power: 0
     };
