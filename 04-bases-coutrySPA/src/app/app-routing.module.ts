@@ -7,6 +7,7 @@ import { HomePageComponent } from './shared/pages/home-page/home-page.component'
 
 
 
+
 const routes: Routes =
 [
   {
@@ -21,6 +22,11 @@ const routes: Routes =
     path:'contact',
     component:ContactComponent
 
+  },
+  {
+    path:'countries',
+    //lazyload               path(make sure the main module import the children module)
+    loadChildren:()=>import('./countries/countries.module').then(m=>m.CountriesModule)
   },
   {
     path:'**',
