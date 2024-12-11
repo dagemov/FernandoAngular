@@ -1,0 +1,32 @@
+<h2>Countries</h2>
+<hr>
+<ul class="list-group">
+  <!--we have to import the rouyter module in opur shared module to user [routerLink="'value"] vidio 117 fernando herrera-->
+  <li
+    [routerLink]="'home'"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:true}"
+    class="list-group-item"
+    >
+      Home Page
+
+  </li>
+
+  <li
+  [routerLink]="'about'"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact:true}"
+  class="list-group-item"
+  >
+    About Page
+  </li>
+
+  <li
+  [routerLink]="'contact'"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact:true}"
+  class="list-group-item">
+    Contact Page
+  </li>
+
+</ul>
