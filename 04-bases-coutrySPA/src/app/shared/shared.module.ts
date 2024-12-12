@@ -7,6 +7,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
 
@@ -17,6 +18,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     ContactComponent,
     HomePageComponent,
     SidebarComponent,
+    SearchBoxComponent,
 
 
   ],
@@ -28,7 +30,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     AboutPageComponent,
     ContactComponent,
     HomePageComponent,
-    SidebarComponent
+    SidebarComponent,
+    SearchBoxComponent
   ]
 })
 export class SharedModule { }

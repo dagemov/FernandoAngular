@@ -30,7 +30,7 @@ const routes: Routes =
   },
   {
     path:'**',
-    redirectTo:'home'
+    redirectTo:'countries' //ruta por defecto del componente route hijo
   }
 ];
 

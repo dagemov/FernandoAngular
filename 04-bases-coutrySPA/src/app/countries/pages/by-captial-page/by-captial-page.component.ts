@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'countries-by-captial-page',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ByCaptialPageComponent {
 
+
+
+  searchByCapital(term:string):void{
+    console.log('by capital page' + term)
+
+  }
 }

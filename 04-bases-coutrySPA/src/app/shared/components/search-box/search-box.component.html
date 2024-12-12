@@ -1,0 +1,10 @@
+<!--Cuando deifninimos con [] es que en el ts definimos la propiedad que va a llegar Input, ya sea emitida o lo que sea
+pero especificamos el tipo de dato que va a llegar-->
+<input
+  type="text"
+  [placeholder]="placeholder"
+  class="form-control"
+  (keyup.enter)="onValue(txtSearchInput.value)"
+  #txtSearchInput
+>
+
