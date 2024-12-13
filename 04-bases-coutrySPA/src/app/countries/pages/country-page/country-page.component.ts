@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../services/countries.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-country-page',
@@ -12,7 +13,10 @@ export class  CountryPageComponent implements OnInit{
 
   constructor(
     private activatedRoute:ActivatedRoute,
-    private countryService:CountriesService
+    private router:Router,
+
+    private countryService:CountriesService,
+
   )
   {
 
@@ -23,14 +27,32 @@ export class  CountryPageComponent implements OnInit{
     //this get the :  path:'by/:id', of our countries-routing , with this we get the id of the country
 
     this.activatedRoute.params
-    .subscribe(({id})=>
+    .pipe(
+      switchMap(({id})=> this.countryService.searchCountryByAlphaCode(id))// los maps no dan el dato de retorno especifico
+    )
+    .subscribe(response=>
     {
-      this.countryService.searchCountryByAlphaCode(id)
+      if(!response){
+        return this.router.navigateByUrl('');
+      }
+      console.log('we got country :',{response})
+      return;
+    });
+
+  }
+
+  // searchCountry(code:string):void{
+
+      /* this.countryService.searchCountryByAlphaCode(id)
       //here we have to re subcribe at the service , cuz we use the actuveRooute to get the param and now we need get the country
       //and to get the country is other method service (get api)and is observable
         .subscribe(countries=>{
-          console.log(countries)
-        });
-    })
-  }
+        console.log({countries})*/
+  //   this.countryService.searchCountryByAlphaCode(code)
+  //   //here we have to re subcribe at the service , cuz we use the actuveRooute to get the param and now we need get the country
+  //   //and to get the country is other method service (get api)and is observable
+  //     .subscribe(countries=>{
+  //       console.log(countries)
+  //     });
+  // }
 }
