@@ -12,14 +12,40 @@ export class CountriesService
 
   constructor(private http:HttpClient) { }
 
+
+  searchCountryByAlphaCode(query:string):Observable<Country[]>
+  {
+    const url =`${this.apiUrl}/alpha/${query}`;
+    return this.searchQuery(url);
+  }
+
   searchByCapital(query:string):Observable<Country[]>
   {
       const url = `${this.apiUrl}/capital/${query}`;
-      //pipe para controlar peticiones erroneas
-      return this.http.get<Country[]>(url)
-      .pipe(
-        catchError(() =>of([]))
-      );
+      return this.searchQuery(url);
 
   }
+
+  searchCountry(query:string):Observable<Country[]>{
+    const url =`${this.apiUrl}/name/${query}`
+   return this.searchQuery(url);
+  }
+
+  searchByRegion(query:string):Observable<Country[]>
+  {
+    const url = `${this.apiUrl}/region/${query}`
+    return this.searchQuery(url);
+
+  }
+
+  searchQuery(queryUrl:string):Observable<Country[]>
+  {
+    const result =  this.http.get<Country[]>(queryUrl)
+    //pipe para controlar peticiones erroneas
+    .pipe(
+      catchError(() =>of([]))
+    );
+    return result
+  }
 }
+
