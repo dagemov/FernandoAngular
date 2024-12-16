@@ -1,1 +1,25 @@
-<p>numbers-page works!</p>
+<p-panel header="Basic Pipe numbers" class="p-2">
+  <h1>Basic Pipes</h1>
+  <p>
+    Inclused pipes in angular - for regulary on the Common Module
+  </p>
+</p-panel>
+
+<div class="grid mt-2">
+
+  <div class="col-12 md:col-4">
+    <p-card header="Sales netas" subheader="present year">
+      {{totalSells+1236 | number:'1.2-2'}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Sales brutes" subheader="present year">
+      {{totalSells | currency:'USA':'symbol-narrow':'1.4-4'}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Ganancias " subheader="present year">
+      {{percent | percent:'1.2-2'}}
+    </p-card>
+  </div>
+</div>

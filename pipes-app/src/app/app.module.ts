@@ -7,7 +7,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from "./shared/shared.module";
 
 
+//Lenguajes local config
+import localEsCO from'@angular/common/locales/es-CO'
+import {registerLocaleData} from '@angular/common'
 
+registerLocaleData(localEsCO);
 
 @NgModule({
   declarations: [
