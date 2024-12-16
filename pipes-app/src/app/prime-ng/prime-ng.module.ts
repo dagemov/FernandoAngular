@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
 
 
 
@@ -13,7 +14,8 @@ import { MenuModule } from 'primeng/menu';
     CommonModule
   ],
   exports:[
-    MenuModule
+    MenuModule,
+    MenubarModule
   ]
 })
 export class PrimeNgModule { }

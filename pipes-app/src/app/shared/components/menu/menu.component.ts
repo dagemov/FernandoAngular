@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
+
 @Component
 ({
   selector: 'shared-menu',
@@ -10,12 +11,40 @@ import { MenuItem } from 'primeng/api';
 
 export class MenuComponent  implements OnInit
 {
-  public menuItems: MenuItem[] =[];
+  menuItems: MenuItem[] | undefined;
 
-  ngOnInit() {
-    this.menuItems = [
-        { label: 'New', icon: 'pi pi-plus' },
-        { label: 'Search', icon: 'pi pi-search' }
-    ];
-}
+    ngOnInit() {
+        this.menuItems = [
+            {
+                label: 'Pipes Angular',
+                icon: 'pi pi-desktop',
+                items:[
+                  {
+                    label:"text and dates",
+                    icon:'pi pi-aling-left'
+                  },
+                  {
+                    label:'Numbers',
+                    icon:"pi pi-dollar"
+                  },
+                  {
+                    label:'No comons',
+                    icon:'pi pi-globe'
+                  }
+                ]
+            },
+            {
+                label: 'Customs Pipes',
+                icon: 'pi pi-cog',
+                items:[
+                  {
+                    label:'New item',
+                    icon:'pi pi-cog'
+                  }
+                ]
+            },
+
+        ]
+    }
+
 }
